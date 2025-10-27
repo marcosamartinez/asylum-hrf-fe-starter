@@ -9,22 +9,37 @@ export const GraphButtons = ({ mapView, setMapView }) => {
   return (
     <section className='data-buttons flex-c justify-center gap-6'>
       <section className='plot-buttons flex-c gap-1'>
-        <button className='scatter-plot bg-white p-1 text-black border-2' disabled={mapView === ScatterPlot} onClick={() => setMapView(ScatterPlot)}>
+        <button 
+          className={`scatter-plot border-2 border-[#60a5fa] text-[#60a5fa] rounded hover:bg-[#60a5fa] hover:text-white transition-colors px-4 py-2 ${mapView === ScatterPlot ? 'bg-[#60a5fa] text-white' : ''}`}
+          onClick={() => setMapView(ScatterPlot)}
+        >
           Time Series
         </button>
-        <button className='heat-map bg-white p-1 text-black border-2' disabled={mapView === HeatMap} onClick={() => setMapView(HeatMap)}>
+        <button 
+          className={`heat-map border-2 border-[#60a5fa] text-[#60a5fa] rounded hover:bg-[#60a5fa] hover:text-white transition-colors px-4 py-2 ${mapView === HeatMap ? 'bg-[#60a5fa] text-white' : ''}`}
+          onClick={() => setMapView(HeatMap)}
+        >
           USCIS Asylum Offices Heat Map
         </button>
-        <button className='choropleth-map bg-white p-1 text-black border-2' disabled={mapView === ChoroplethMap} onClick={() => setMapView(ChoroplethMap)}>
+        <button 
+          className={`choropleth-map border-2 border-[#60a5fa] text-[#60a5fa] rounded hover:bg-[#60a5fa] hover:text-white transition-colors px-4 py-2 ${mapView === ChoroplethMap ? 'bg-[#60a5fa] text-white' : ''}`}
+          onClick={() => setMapView(ChoroplethMap)}
+        >
           Citizenship of Asylum Seeker
         </button>
       </section>
 
       <section className='query-buttons flex-c gap-1'>
-        <button className='update-query primary-c text-amber-50' onClick={updateQuery}>
+        <button 
+          className='update-query border-2 border-[#60a5fa] text-[#60a5fa] rounded hover:bg-[#60a5fa] hover:text-white transition-colors px-4 py-2'
+          onClick={updateQuery}
+        >
           Update Query
         </button>
-        <button className='clear-query primary-c text-amber-50' onClick={clearQuery}>
+        <button 
+          className='clear-query border-2 border-[#60a5fa] text-[#60a5fa] rounded hover:bg-[#60a5fa] hover:text-white transition-colors px-4 py-2'
+          onClick={clearQuery}
+        >
           Clear Query
         </button>
       </section>

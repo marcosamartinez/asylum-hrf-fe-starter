@@ -2,7 +2,7 @@ import Logo from '../../assets/logo.png';
 
 export default function Footer() {
   return (
-    <footer className='flex-c w-[100%] primary-c justify-between px-14 text-amber-50'>
+    <footer className='flex-c w-[100%] primary-c justify-between px-14 text-[#60a5fa]'>
       <section className='footer-details flex pt-4 pb-8 relative'>
         <div className='flex justify-between absolute top-4 left-0'>
           <a href='https://www.humanrightsfirst.org/'>

@@ -17,16 +17,24 @@ const useAppContextProvider = () => {
 
   useLocalStorage({ graphData, setGraphData });
 
-  const getFiscalData = () => {
-    // TODO: Replace this with functionality to retrieve the data from the fiscalSummary endpoint
-    const fiscalDataRes = testData;
-    return fiscalDataRes;
+  const getFiscalData = async () => {
+    try {
+      const response = await axios.get('https://asylum-be.onrender.com/fiscalSummary');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching fiscal data:', error);
+      return null;
+    }
   };
 
   const getCitizenshipResults = async () => {
-    // TODO: Replace this with functionality to retrieve the data from the citizenshipSummary endpoint
-    const citizenshipRes = testData.citizenshipResults;
-    return citizenshipRes;
+    try {
+      const response = await axios.get('https://asylum-be.onrender.com/citizenshipSummary');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching citizenship data:', error);
+      return null;
+    }
   };
 
   const updateQuery = async () => {
@@ -34,7 +42,21 @@ const useAppContextProvider = () => {
   };
 
   const fetchData = async () => {
-    // TODO: fetch all the required data and set it to the graphData state
+    try {
+      const fiscalData = await getFiscalData();
+      const citizenshipData = await getCitizenshipResults();
+
+      if (fiscalData && citizenshipData) {
+        setGraphData({
+          ...fiscalData,
+          citizenshipResults: citizenshipData,
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setIsDataLoading(false);
+    }
   };
 
   const clearQuery = () => {
