@@ -7,10 +7,6 @@ import { Auth0Provider } from '@auth0/auth0-react';
 const AUTH_DOMAIN = import.meta.env.VITE_AUTH_DOMAIN;
 const AUTH_CLIENT_ID = import.meta.env.VITE_AUTH_CLIENT_ID;
 
-// Debug log to check if env vars are loaded (remove in production)
-// console.log('AUTH_DOMAIN:', AUTH_DOMAIN);
-// console.log('AUTH_CLIENT_ID:', AUTH_CLIENT_ID ? '***' + AUTH_CLIENT_ID.slice(-4) : 'undefined');
-
 /**
  * TODO: Ticket 3:
  * Implement authentication using Auth0:
